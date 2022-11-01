@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -48,7 +47,8 @@ class FutureProviderDemo extends ConsumerWidget {
                     final city = City.values[i];
                     final isSelected = city == ref.watch(currentCityWeather);
                     return ListTile(
-                      title: Text(city.name),
+                      leading: const Icon(Icons.place),
+                      title: Text(city.name.toUpperCase()),
                       trailing: isSelected ? const Icon(Icons.check) : null,
                       onTap: () =>
                           ref.read(currentCityWeather.notifier).state = city,
